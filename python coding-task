@@ -1,0 +1,44 @@
+Programming Task
+================
+
+Write a program in Python which processes syslog messages from a file and
+outputs some statistics about them.
+
+Please also include a text file with a short description of your approach to
+the problem.
+
+
+File Format
+-----------
+
+There's exactly one syslog message on each line. The messages are in the "old"
+(BSD) syslog format (that is, consisting of PRI, HEADER and MSG) as defined by
+the standard.
+
+You can assume that every message adheres to the standard and all the messages
+come from the same year.
+
+The input file may be very large (dozens of gigabytes). Use Python's
+multiprocessing library to process it in a reasonable time frame.
+
+
+Output
+------
+
+After the whole file has been processed, output the following statistics in a
+human-readable way, *per host as well as globally over all messages*:
+
+    - the average length of the MSG part of the messages
+    - the total number of Emergency and Alert severity level messages
+    - the timestamp of the oldest and newest message
+
+
+Example Input
+-------------
+
+The following is an example of valid input for the program (as a file):
+
+<47>Sep 22 15:38:21 mymachine myproc% fatal error, terminating!
+<34>Jan 25 05:06:34 10.1.2.3 su: 'su root' failed for sprinkles on /dev/pts/8
+<13>Oct  7 10:09:00 unicorn sched# invalid operation
+<165>Aug  3 22:14:15 FEDC:BA98:7654:3210:FEDC:BA98:7654:3210 awesomeapp starting up version 3.0.1...
